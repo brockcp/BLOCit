@@ -21,9 +21,19 @@
    </div>
  </div>
 
-
+<% if user_has_no_posts? %>
+ <h2><%= @user.name %> has not submitted any posts yet.</h2>
+<% else %>
  <h2>Posts</h2>
  <%= render @user.posts %>
+<% end %>
 
+<% if user_has_no_comments? %>
+ <h2><%= @user.name %> has not submitted any comments yet.</h2>
+<% else %>
  <h2>Comments</h2>
  <%= render @user.comments %>
+<% end %>
+
+<h4>Favorites</h4>
+<%= render partial: 'posts/favorite', locals: { favorite_posts: @favorite_posts } %>
