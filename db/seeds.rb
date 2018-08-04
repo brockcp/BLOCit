@@ -1,7 +1,7 @@
 require 'random_data'
 
 # Create Users
-5.times do
+2.times do
   User.create!(
 # #3
   name:     RandomData.random_name,
@@ -12,7 +12,7 @@ end
 users = User.all
 
 # Create Topics
-15.times do
+1.times do
   Topic.create!(
     name:         RandomData.random_sentence,
     description:  RandomData.random_paragraph
@@ -21,7 +21,7 @@ end
 topics = Topic.all
 
 # Create Posts
-50.times do
+2.times do
   post = Post.create!(
     user:   users.sample,
     topic:  topics.sample,
@@ -36,7 +36,7 @@ end
 posts = Post.all
 
 # Create Comments
-100.times do
+3.times do
   Comment.create!(
     user: users.sample,
     post: posts.sample,
@@ -46,8 +46,10 @@ end
 
 user = User.first
  user.update_attributes!(
+   name: 'brock patterson',
    email: 'brockcp@me.com', # replace this with your personal email
-   password: 'hellohello'
+   password: 'hellohello',
+   role: 'admin'
  )
 
  # Create an admin user
